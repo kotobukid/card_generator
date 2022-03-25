@@ -15,7 +15,7 @@
                     th 種別
                     td
                         input(type="text" :value="item.type")
-                        assist-buttons(v-if="use_assist" name="equip_part" items="片手剣,両手剣,斧" @value-changed="value_changed")
+                        assist-buttons(v-if="use_assist" name="type" items="片手剣,両手剣,斧" @value-changed="value_changed")
                 tr
                     th レベル
                     td
