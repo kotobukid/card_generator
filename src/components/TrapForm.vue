@@ -30,7 +30,7 @@
                     th 条件
                     td
                         input(type="text" :value="item.condition")
-                        assist-buttons(v-if="use_assist" name="condition" items="トリガー,エンチャント,コンティニュ" @value-changed="value_changed")
+                        assist-buttons(v-if="use_assist" name="condition" items="トリガー,エンチャント,コンティニュ" @value-changed="value_changed" :omit_clear="true")
                 tr
                     th  探知値
                     td
