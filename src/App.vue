@@ -1,15 +1,15 @@
 <template lang="pug">
     #app
-        HelloWorld(msg="Welcome to Your Vue.js + TypeScript App")
+        form-switcher
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import FormSwitcher from './components/FormSwitcher.vue';
 
 @Component({
     components: {
-        HelloWorld,
+        'form-switcher': FormSwitcher,
     },
 })
 export default class App extends Vue {

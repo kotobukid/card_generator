@@ -1,5 +1,5 @@
 <template lang="pug">
-    .hello
+    .form-switcher
         weapon-form
 </template>
 
@@ -12,7 +12,7 @@ import WeaponForm from "@/components/WeaponForm.vue";
         'weapon-form': WeaponForm
     }
 })
-export default class HelloWorld extends Vue {
+export default class FormSwitcher extends Vue {
     @Prop() private msg!: string;
 }
 </script>

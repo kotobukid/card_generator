@@ -15,42 +15,42 @@
                     th 種別
                     td
                         input(type="text" :value="item.type")
-                        assist-button(v-if="use_assist" name="equip_part" items="片手剣,両手剣,斧" @value-changed="value_changed")
+                        assist-buttons(v-if="use_assist" name="equip_part" items="片手剣,両手剣,斧" @value-changed="value_changed")
                 tr
                     th レベル
                     td
                         input(type="text" :value="item.level")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="level" :value="item.level")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="level" :value="item.level")
                 tr
                     th 重量
                     td
                         input(type="text" :value="item.weight")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="weight" :value="item.weight")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="weight" :value="item.weight")
                 tr
                     th 命中補正
                     td
                         input(type="text" :value="item.hit_adjust")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="hit_adjust" :value="item.hit_adjust")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="hit_adjust" :value="item.hit_adjust")
                 tr
                     th  攻撃力
                     td
                         input(type="text" :value="item.attack")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="attack" :value="item.attack")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="attack" :value="item.attack")
                 tr
                     th 行動修正
                     td
                         input(type="text" :value="item.initiative_adjust")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="initiative_adjust" :value="item.initiative_adjust")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="initiative_adjust" :value="item.initiative_adjust")
                 tr
                     th  射程
                     td
                         input(type="text" :value="item.range")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="range" :value="item.range")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="range" :value="item.range")
                 tr
                     th  装備部位
                     td
                         input(type="text" :value="item.equip_part")
-                        assist-button(v-if="use_assist" name="equip_part" items="頭,体,片手,両手,装身具" @value-changed="value_changed")
+                        assist-buttons(v-if="use_assist" name="equip_part" items="頭,体,片手,両手,装身具" @value-changed="value_changed")
                 tr
                     th  価格
                     td
@@ -59,7 +59,7 @@
                     th  鑑定値
                     td
                         input(type="text" :value="item.appraisal")
-                        increment-button(v-if="use_assist" @value-changed="value_changed" name="appraisal" :value="item.appraisal")
+                        increment-buttons(v-if="use_assist" @value-changed="value_changed" name="appraisal" :value="item.appraisal")
                 tr
                     th  効果
                     td
@@ -75,13 +75,13 @@
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import {SourceWeapon, RawSourceWeapon} from "@/types";
-import AssistButton from "@/components/AssistButtons.vue";
-import IncrementButton from "@/components/IncrementButtons.vue";
+import AssistButtons from "@/components/AssistButtons.vue";
+import IncrementButtons from "@/components/IncrementButtons.vue";
 
 @Component({
     components: {
-        'assist-button': AssistButton,
-        'increment-button': IncrementButton
+        'assist-buttons': AssistButtons,
+        'increment-buttons': IncrementButtons
     }
 })
 export default class WeaponForm extends Vue {

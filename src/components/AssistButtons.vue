@@ -9,7 +9,7 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 import _ from 'lodash';
 
 @Component({})
-export default class AssistButton extends Vue {
+export default class AssistButtons extends Vue {
     @Prop({default: ''}) private items!: string;
     @Prop({default: ''}) private name!: string;
     @Prop({default: false}) private omit_clear!: boolean;
