@@ -30,29 +30,11 @@ export default class AssistButton extends Vue {
 </script>
 
 <style scoped lang="less">
+@import "../assets/stylesheets/_buttons";
+
 .buttons {
     margin: 3px 0;
 }
 
-.button {
-    cursor: pointer;
-    padding: 2px;
-    border: 1px solid grey;
-    border-radius: 3px;
-    background-color: #efefef;
-    margin-right: 3px;
 
-    &:active {
-        position: relative;
-        top: 1px;
-    }
-
-    &:last-child {
-        margin-right: 0;
-    }
-
-    &.clear {
-        background-color: lightblue;
-    }
-}
 </style>

@@ -1,6 +1,8 @@
 <template lang="pug">
     .weapon_form
         form
+            .buttons
+                span.use_assist(@click="toggle_assist" :class="use_assist ? 'active': ''") 入力アシスト
             table
                 colgroup
                     col(style="width: 100px;")
@@ -13,36 +15,42 @@
                     th 種別
                     td
                         input(type="text" :value="item.type")
-                        assist-button(name="equip_part" items="片手剣,両手剣,斧" @value-changed="value_changed")
+                        assist-button(v-if="use_assist" name="equip_part" items="片手剣,両手剣,斧" @value-changed="value_changed")
                 tr
                     th レベル
                     td
                         input(type="text" :value="item.level")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="level" :value="item.level")
                 tr
                     th 重量
                     td
                         input(type="text" :value="item.weight")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="weight" :value="item.weight")
                 tr
                     th 命中補正
                     td
                         input(type="text" :value="item.hit_adjust")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="hit_adjust" :value="item.hit_adjust")
                 tr
                     th  攻撃力
                     td
                         input(type="text" :value="item.attack")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="attack" :value="item.attack")
                 tr
                     th 行動修正
                     td
                         input(type="text" :value="item.initiative_adjust")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="initiative_adjust" :value="item.initiative_adjust")
                 tr
                     th  射程
                     td
                         input(type="text" :value="item.range")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="range" :value="item.range")
                 tr
                     th  装備部位
                     td
                         input(type="text" :value="item.equip_part")
-                        assist-button(name="equip_part" items="頭,体,片手,両手,装身具" @value-changed="value_changed")
+                        assist-button(v-if="use_assist" name="equip_part" items="頭,体,片手,両手,装身具" @value-changed="value_changed")
                 tr
                     th  価格
                     td
@@ -51,6 +59,7 @@
                     th  鑑定値
                     td
                         input(type="text" :value="item.appraisal")
+                        increment-button(v-if="use_assist" @value-changed="value_changed" name="appraisal" :value="item.appraisal")
                 tr
                     th  効果
                     td
@@ -59,16 +68,21 @@
                     th  解説
                     td
                         textarea(:value="item.description")
-
+            .buttons
+                span.button(@click="submit") 生成
 </template>
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import {SourceWeapon, RawSourceWeapon} from "@/types";
 import AssistButton from "@/components/AssistButtons.vue";
+import IncrementButton from "@/components/IncrementButtons.vue";
 
 @Component({
-    components: {'assist-button': AssistButton}
+    components: {
+        'assist-button': AssistButton,
+        'increment-button': IncrementButton
+    }
 })
 export default class WeaponForm extends Vue {
     item: SourceWeapon = {
@@ -96,8 +110,30 @@ export default class WeaponForm extends Vue {
         this.value_change(info.key, info.value);
     }
 
+    use_assist: boolean = true;
+
+    toggle_assist(): void {
+        this.use_assist = !this.use_assist;
+    }
+
+    submit(): void {
+        console.log(this.item);
+    }
 }
 </script>
 
 <style scoped lang="less">
+@import "../assets/stylesheets/_buttons";
+
+.buttons {
+    margin: 3px 0;
+}
+
+span.use_assist {
+    .common_button();
+
+    &.active {
+        background-color: pink;
+    }
+}
 </style>
