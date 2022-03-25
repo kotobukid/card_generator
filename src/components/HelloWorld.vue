@@ -1,11 +1,17 @@
 <template lang="pug">
     .hello
+        weapon-form
 </template>
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
+import WeaponForm from "@/components/WeaponForm.vue";
 
-@Component
+@Component({
+    components: {
+        'weapon-form': WeaponForm
+    }
+})
 export default class HelloWorld extends Vue {
     @Prop() private msg!: string;
 }
