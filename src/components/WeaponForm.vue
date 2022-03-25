@@ -5,7 +5,7 @@
                 span.use_assist(@click="toggle_assist" :class="use_assist ? 'active': ''") 入力アシスト
             table
                 colgroup
-                    col(style="width: 100px;")
+                    col(style="width: 150px;")
                     col(style="width: 300px;")
                 tr
                     th 名称
